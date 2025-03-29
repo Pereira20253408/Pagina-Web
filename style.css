@@ -25,7 +25,7 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 2.5rem;
+    font-size: 0rem;
     font-weight: bold;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
@@ -175,7 +175,7 @@ footer {
     margin-top: 20px;
 }
 
-/* ✅ Estilos para pantallas pequeñas (móviles) */
+/* Estilos para pantallas pequeñas (móviles) */
 @media screen and (max-width: 768px) {
     .game-list {
         flex-direction: column; /* Los juegos se apilan en móviles */
@@ -203,7 +203,7 @@ footer {
     }
 }
 
-/* ✅ Estilos para pantallas medianas (tablets) */
+/*Estilos para pantallas medianas (tablets) */
 @media screen and (max-width: 1024px) {
     .game {
         width: 80%;
