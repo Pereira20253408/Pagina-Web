@@ -1,0 +1,211 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff0000, #ff7300, #ffeb00, #00ff00, #0099ff, #4b0082, #9400d3);
+    text-align: center;
+}
+
+/* Estilos del encabezado */
+header {
+    position: relative;
+    text-align: center;
+}
+
+.banner {
+    width: 100%;
+    height: 500px;
+    display: block;
+}
+
+.banner-title {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos de la lista de juegos */
+.game-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.game-number {
+    position: relative;
+    background: url('number.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 30px;
+    width: 400px;
+}
+.game-number::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 30px;
+}
+.game-number * {
+    position: relative;
+    z-index: 1;
+}
+
+.game-color {
+    position: relative;
+    background: url('color.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 30px
+}
+.game-color::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 30px;
+}
+.game-color * {
+    position: relative;
+    z-index: 1;
+}
+
+.game-vocal {
+    position: relative;
+    background: url('vocal.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 30px
+}
+.game-vocal::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 30px;
+}
+.game-vocal * {
+    position: relative;
+    z-index: 1;
+}
+
+.game h2 {
+    text-shadow: 5px 5px 7px rgba(0, 0, 0, 1);
+    padding: 5px;
+    border-radius: 5px;
+    color: #fc1703;
+    font-size: 2rem;
+}
+
+.game {
+    min-height: 200px; /* Ajusta según necesites */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+}
+
+
+/* Ajuste de posición de los párrafos en cada juego */
+.game p {
+    position: relative;
+}
+
+/* Ajuste individual para cada sección */
+.game-number p {
+    top: -15px; /* Mueve el texto hacia arriba */
+}
+
+.game-color p {
+    top: -15px; /* Mueve el texto hacia abajo */
+}
+
+.game-vocal p {
+    top: -15px; /* Pequeño ajuste hacia arriba */
+}
+
+.animated-title {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos del botón de descarga */
+.download-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    background-color: #10f000;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.download-btn:hover {
+    background-color: #cc5500;
+}
+
+/* Estilos del pie de página */
+footer {
+    background: #222;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* ✅ Estilos para pantallas pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+    .game-list {
+        flex-direction: column; /* Los juegos se apilan en móviles */
+        align-items: center;
+    }
+
+    .banner {
+        width: 100%;
+        height: auto; /* Mantiene la proporción */
+        object-fit: cover; /* Evita distorsión */
+    }
+
+    .game {
+        width: 90%; /* Se hacen más anchos en móviles */
+        max-width: 350px;
+    }
+
+    .banner-title {
+        font-size: 2rem; /* Reduce el tamaño del título */
+    }
+
+    .download-btn {
+        padding: 12px 25px; /* Ajusta el tamaño del botón */
+        font-size: 1rem;
+    }
+}
+
+/* ✅ Estilos para pantallas medianas (tablets) */
+@media screen and (max-width: 1024px) {
+    .game {
+        width: 80%;
+    }
+}
