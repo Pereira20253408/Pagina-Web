@@ -1,0 +1,1966 @@
+/* --- Reseteo Básico y Fuentes --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    position: relative;
+    font-family: 'Comic Neue', cursive, sans-serif;
+    line-height: 1.6;
+    background-image: linear-gradient(45deg, rgba(25,207,11,1) 8%, rgba(10,33,226,1) 27%, rgba(215,71,190,1) 53%, rgba(224,228,46,1) 77%, rgba(247,8,137,0.9752275910364145) 100%);
+    color: #333;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Finger Paint', cursive;
+    color: #ff6347;
+    margin-bottom: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: #1e90ff;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Estilo de foco general para elementos interactivos */
+a:focus,
+button:focus,
+input:focus, 
+select:focus,
+textarea:focus {
+  outline: 3px solid #1e90ff; /* Dodger Blue (puedes cambiarlo) */
+  outline-offset: 2px; 
+}
+
+#feedback-form textarea:focus {
+    border-color: #4682b4;
+}
+
+/* --- Header y Navegación --- */
+header {
+    background-image: linear-gradient(45deg, rgba(25,207,11,1) 2%, rgba(226,220,10,1) 32%, rgba(215,112,71,1) 65%, rgba(247,8,25,0.9752275910364145) 100%);
+    padding: 0.6rem 2rem; /* Ajusta padding si es necesario */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid #ff69b4; /* Hot Pink */
+}
+
+/* Estilos para el contenedor del logo */
+.logo {
+    display: flex; /* Permite alinear imagen y texto */
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Quita subrayado del enlace */
+}
+
+.logo-img {
+    max-height: 80px; /* Controla el tamaño del logo */
+    margin-right: 10px; /* Espacio entre logo y texto */
+}
+
+.site-name {
+    font-family: 'Finger Paint', cursive;
+    font-size: 2rem; /* Tamaño del nombre del sitio */
+    font-weight: 700;
+    color: #0509fc;
+    text-shadow: 3px 3px 7px rgba(0,0,0,0.8);
+    line-height: 1.2; /* Ajusta si el nombre es largo */
+}
+
+.site-name-full {
+    display: inline; 
+}
+.site-name-abbr {
+    display: none;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #000000; /* Steel Blue */
+    padding: 0.5rem 0.5rem;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ff69b4; /* Hot Pink */
+    color: #fff; /* Blanco */
+}
+
+nav ul li a.active {
+    background-color: #ff4500; /* Orange Red */
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Estilos base (escritorio) */
+.nav-toggle {
+    display: none; /* Oculto en pantallas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1100; /* Asegurar que esté encima de otros elementos del header si es necesario */
+}
+
+.nav-toggle i {
+     font-size: 1.8rem; /* Tamaño del icono */
+     color: white; /* O el color que prefieras */
+}
+
+.nav-toggle i.fa-times {
+    color: black;
+}
+
+
+/* Estilo base para el contenedor durante la transición */
+.transition-fade {
+  transition: opacity 0.5s ease-out; /* Duración y tipo de transición */
+  opacity: 1; /* Estado normal: visible */
+}
+
+/* Estilo aplicado por Swup al HTML mientras anima */
+html.is-animating .transition-fade {
+   /* Puedes añadir estilos aquí si necesitas algo durante toda la animación */
+   /* Por ejemplo, evitar interacción: pointer-events: none; */
+}
+
+/* Estilo aplicado al contenedor que está saliendo */
+html.is-leaving .transition-fade {
+  opacity: 0; /* Hacer transparente para el fade-out */
+  transform: translateY(15px); /* Opcional: ligero deslizamiento hacia abajo al salir */
+}
+
+/* Estilo aplicado al contenedor que está entrando */
+html.is-entering .transition-fade {
+   opacity: 0; /* Empezar transparente */
+   transform: translateY(-15px); /* Opcional: empezar ligeramente arriba */
+   /* Swup quitará esta clase cuando la animación de entrada termine,
+      y la transición definida en .transition-fade hará que vuelva a opacity: 1
+      y transform: translateY(0) suavemente */
+}
+
+/* --- Sección Banner --- */
+.banner {
+    height: 350px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    top: 0;
+    margin-bottom: 50px;
+    z-index: 5;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(210, 40, 0, 0.6);
+}
+
+.banner::before {
+    content: ''; /* Necesario para que se muestre */
+    position: absolute; /* Posición absoluta relativa al .banner */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Colocarlo DETRÁS del contenido del banner (el h2) */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent; /* fondo transparente */
+    background-image: none; /* Sin imagen inicialmente */
+    opacity: 0; /* Empezar totalmente transparente */
+    transition: opacity 0.8s ease-in-out; /* Duración y tipo de fundido */
+}
+
+/* Regla base cuando hay una clase de página activa en el body */
+body.home .banner::before,
+body.videos .banner::before,
+body.juegos .banner::before,
+body.descargas .banner::before,
+body.musica .banner::before {
+    opacity: 1; 
+}
+
+/* Asignar la imagen específica a cada pseudo-elemento */
+body.home .banner::before {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../images/banner_home.webp');
+}
+body.videos .banner::before {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../images/banner_videos.webp');
+}
+body.juegos .banner::before {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../images/banner_juegos.webp');
+}
+body.descargas .banner::before {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../images/banner_descargas.webp');
+}
+body.musica .banner::before {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('../images/banner_musica.webp');
+}
+
+.banner h2 {
+    font-size: 3.5rem;
+    color: #58d925;
+    text-shadow: 3px 3px 7px rgba(217, 41, 230, 0.7);
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente un poco más oscuro */
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.banner h2 {
+    display: none;
+}
+
+body.home .banner h2 {
+    display: block;
+}
+
+/* --- Contenido Principal --- */
+main {
+    padding: 2rem;
+    padding-top: calc(350px + 2rem);
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    max-width: 900px;
+    margin: 0 auto 2rem auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: 3px dashed #32cd32; /* Lime Green */
+}
+
+.content h2 {
+    color: #9370db; /* Medium Purple */
+    text-align: center;
+}
+
+.content ul {
+    list-style: '⭐';
+    padding-left: 2rem;
+    margin-top: 1rem;
+}
+
+.content ul li {
+    margin-bottom: 0.8rem;
+    color: #555;
+}
+
+.content ul li strong {
+    color: #ff6347; /* Tomato */
+}
+
+                                                         /* --- Estilos para la Página Home --- */
+
+
+/* --- Estilos para los 4 Bloques de Características en Home --- */
+
+.features-container {
+    display: flex; /* Habilita Flexbox */
+    flex-wrap: wrap; /* Permite que los bloques pasen a la siguiente línea en pantallas pequeñas */
+    justify-content: space-around; /* Distribuye los bloques con espacio alrededor */
+    gap: 1.5rem; /* Espacio entre los bloques (horizontal y vertical si envuelven) */
+    padding: 2rem 1rem; /* Espacio interior alrededor del grupo de bloques */
+    max-width: 1200px;
+    margin: 2rem auto; /* Centra el contenedor en la página y añade espacio arriba/abajo */
+}
+
+.feature-box {
+    flex: 1 1 200px; 
+    min-width: 200px; 
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: 3px dashed #32cd32; 
+    text-align: center; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* <-- AÑADIR para el overlay */
+    overflow: hidden; /* <-- AÑADIR para el overlay */
+
+      /* --- Propiedades para la imagen de fondo --- */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    z-index: 0;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-box h3 {
+    font-family: 'Finger Paint', cursive;
+    color: #00ff48;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    position: relative; /* Para que esté sobre el overlay */
+    z-index: 2; /* Encima del overlay (z-index: 1) */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); 
+}
+
+.feature-box p {
+    font-size: 1.2rem;
+    color: white;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    position: relative; /* Para que esté sobre el overlay */
+    z-index: 2; /* Encima del overlay */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Asignar imagen de fondo a cada bloque específico */
+.videos-box {
+    background-image: url('../images/feature-videos.webp');
+}
+
+.juegos-box {
+    background-image: url('../images/feature-juegos.webp');
+}
+
+.descargas-box {
+    background-image: url('../images/feature-descargas.webp');
+}
+
+.musica-box {
+    background-image: url('../images/feature-musica.webp');
+}
+
+.feature-box::before {
+    content: ''; /* Necesario para que el pseudo-elemento se muestre */
+    position: absolute; /* Posición absoluta relativa al .feature-box */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: inherit; /* Hereda los bordes redondeados del padre */
+    z-index: 1; /* Coloca el overlay encima de la imagen de fondo (z-index: 0) */
+    transition: background-color 0.3s ease; /* Transición suave opcional */
+}
+
+/* Opcional: Aclarar un poco el overlay en hover */
+.feature-box:hover::before {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* --- Estilos para la Sección de Video Destacado --- */
+
+.featured-video-section {
+    padding: 2rem 1rem; /* Espacio interior */
+    margin: 3rem auto; /* Margen arriba/abajo y centrado horizontal */
+    max-width: 1000px; /* Ancho máximo para esta sección */
+}
+
+.section-title {
+    font-family: 'Finger Paint', cursive; /* Usar la fuente de títulos */
+    color: #290582;
+    text-align: center; /* Título centrado */
+    font-size: 2.5rem;
+    margin-bottom: 1rem; /* Espacio debajo del título */
+    text-shadow: 0px 0px 10px rgba(255,255,255,1);
+    animation: popInBounce 1s ease-out 0.2s backwards;
+}
+
+.featured-video-content {
+    display: flex; /* Habilita Flexbox para las dos columnas */
+    flex-wrap: wrap; /* Permite que las columnas se apilen en pantallas pequeñas */
+    align-items: center; /* Centra los items verticalmente si tienen alturas diferentes */
+    gap: 2rem; /* Espacio entre la miniatura y los detalles */
+    background-color: #8fffcb; /* Fondo blanco para el contenedor */
+    padding: 2rem; /* Relleno interior */
+    border-radius: 15px; /* Esquinas redondeadas */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Sombra un poco más pronunciada */
+    /* Quitamos el borde punteado aquí para diferenciarlo, puedes añadirlo si prefieres */
+    /* border: 3px dashed #32cd32; */
+}
+
+.video-thumbnail,
+.game-thumbnail {
+    flex: 1 1 40%; /* Intenta ocupar ~40% del ancho, puede crecer/encoger */
+    min-width: 200px; /* Ancho mínimo antes de apilarse */
+}
+
+.video-thumbnail img,
+.game-thumbnail img {
+    display: block; /* Evita espacio extra debajo de la imagen */
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    max-width: 100%; /* Asegura que no se desborde */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Esquinas redondeadas para la imagen */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra sutil para la miniatura */
+}
+
+.video-details {
+    flex: 1 1 50%; /* Intenta ocupar ~50% del ancho, puede crecer/encoger */
+    min-width: 250px;
+    text-align: center;
+}
+
+.video-details h4 {
+    font-family: 'Comic Neue', cursive; /* Usar fuente secundaria para el título del video */
+    font-weight: 700; /* Negrita */
+    color: #4682b4; /* Steel Blue (o el color que prefieras) */
+    font-size: 1.8rem; /* Tamaño del título del video */
+    margin-bottom: 1rem; /* Espacio debajo del título */
+}
+
+.video-details p {
+    font-family: 'Comic Neue', cursive;
+    color: #555; /* Color de texto estándar */
+    font-size: 1rem; /* Tamaño de párrafo estándar */
+    line-height: 1.6;
+    margin-bottom: 1.5rem; /* Espacio si añades un botón después */
+}
+
+/* --- Estilos para la Sección de Juego Destacado --- */
+.featured-game-section {
+    padding: 1rem;
+    margin: 3rem auto;
+    max-width: 1000px;
+    margin-top: 1px;
+}
+
+/* Reutiliza .section-title y añade clase específica si necesitas cambiar color */
+.game-title {
+    font-family: 'Finger Paint', cursive;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-shadow: none;
+    color: #0600a8;
+    background-image: linear-gradient(90deg, #ff6347, #ffd700, #32cd32,#1e90ff, #9370db, #ff69b4, #ff6347);
+    background-size: 300% auto; /* Fondo 3 veces más ancho que el elemento */
+    -webkit-background-clip: text; /* Para Safari/Chrome */
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Asegura transparencia en Webkit */
+     color: transparent; /* Color de texto transparente para mostrar el fondo */
+
+    -webkit-text-stroke-width: 0.1px; /* Ancho del borde (ajusta si es necesario) */
+    -webkit-text-stroke-color: black; /* Color del borde (negro suele funcionar bien) */
+
+    /* --- Combinación de Animaciones --- */
+    animation:
+        popInBounce 1s ease-out 0.2s backwards,
+        /* Animación 2: Movimiento del gradiente (empieza después del pop-in) */
+        animateGradientBackground 6s linear 1.2s infinite alternate; /* Va y viene */
+}
+
+.featured-game-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    background-color: #facdec;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.game-details {
+    flex: 1 1 50%;
+}
+
+.game-details h4 {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    color: #047500;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.game-details p {
+    font-family: 'Comic Neue', cursive;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Contenedor para los botones de juego */
+.game-buttons-wrapper {
+    margin-top: 1.5rem; /* Espacio arriba de los botones */
+    display: flex; /* Usa flex para alinear botones */
+    flex-wrap: wrap; /* Permite que se apilen en móvil */
+    gap: 1rem; /* Espacio entre los botones */
+    /* justify-content: center; */ /* Descomenta si quieres centrar los botones */
+}
+
+/* Estilo base para botones de juego */
+.game-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #fff;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;    
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center;
+    flex-grow: 1;                          
+    flex-basis: 150px;                     
+    animation-name: pulse;                  
+    animation-duration: 2.5s;               
+    animation-timing-function: ease-in-out; 
+    animation-iteration-count: infinite;    
+    animation-delay: 1s;                   
+}
+
+/* Estilo específico botón Jugar Online */
+.play-online-btn {
+    background-color: #1e90ff;
+}
+.play-online-btn:hover {
+    background-color: #187bcd;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+}
+
+/* Estilo específico botón Descargar APK */
+.download-apk-btn {
+    background-color: #32cd32; 
+}
+.download-apk-btn:hover {
+    background-color: #28a428;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+}
+
+/* --- Estilos para la Sección de Redes Sociales --- */
+.social-media-section {
+    padding: 1rem 1rem; /* Más padding vertical */
+    margin: 1rem auto; /* Margen arriba/abajo y centrado */
+    max-width: 900px; /* Ancho máximo */
+    text-align: center; /* Centrar el título y el contenedor de iconos */
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+}
+
+.social-title {
+    /* Hereda estilos de .section-title (tamaño, fuente) pero podemos añadir/cambiar */
+    color: #ff0000;
+    margin-bottom: 2.5rem; /* Más espacio debajo del título */
+    font-size: 2.8rem; /* Un poco más grande para destacar */
+    text-shadow: 0px 0px 15px rgba(255,255,255,0.5);
+}
+
+.social-icons-container {
+    display: flex; /* Usa flexbox para alinear iconos */
+    justify-content: center; /* Centra los iconos horizontalmente */
+    align-items: center; /* Alinea verticalmente (si tienen alturas diferentes) */
+    flex-wrap: wrap; /* Permite que se envuelvan si no caben */
+    gap: 2.5rem; /* Espacio generoso entre iconos */
+}
+
+.social-icon-link {
+    display: inline-block; /* Para aplicar tamaño y padding */
+    font-size: 3.5rem; /* Tamaño GRANDE para los iconos */
+    color: #4682b4; /* Color base para los iconos (Steel Blue) */
+    text-decoration: none; /* Sin subrayado */
+    padding: 0.5rem; /* Espacio alrededor del icono */
+    transition: transform 0.3s ease, color 0.3s ease; /* Transición suave */
+    line-height: 1; /* Ajuste para mejor centrado vertical del icono */
+}
+
+/* Efectos Hover específicos por red social */
+.social-icon-link.youtube:hover {
+    color: #FF0000; /* Rojo YouTube */
+    transform: scale(1.15) rotate(5deg); /* Agranda y rota un poco */
+}
+
+.social-icon-link.instagram:hover {
+    color: #E1306C; /* Rosa/Púrpura Instagram */
+    transform: scale(1.15) rotate(-5deg); /* Agranda y rota al revés */
+}
+
+.social-icon-link.tiktok:hover {
+    color: #000000; /* Negro TikTok (o #69C9D0 para turquesa) */
+    transform: scale(1.15) translateY(-5px); /* Agranda y levanta un poco */
+}
+
+.feature-btn {
+    display: inline-block; /* Para que el padding funcione correctamente */
+    padding: 10px 25px; /* Relleno del botón */
+    background-color: #ff6347;
+    color: #fff; 
+    font-family: 'Comic Neue', cursive; /* Fuente del botón */
+    font-weight: 700; /* Negrita */
+    font-size: 1.2rem;
+    text-decoration: none; /* Quitar subrayado del enlace */
+    border: none; /* Quitar borde por defecto si lo hubiera */
+    border-radius: 25px;
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil para el botón */
+    position: relative; /* Para que esté sobre el overlay */
+    z-index: 2; /* Encima del overlay */
+}
+
+.feature-btn:hover {
+    background-color: #e55337; /* Color un poco más oscuro en hover */
+    transform: scale(1.05); /* Agranda ligeramente el botón en hover */
+}
+
+.youtube-btn {
+    display: inline-block; /* Necesario para padding/margen */
+    padding: 10px 15px; /* Ajustar padding si se desea */
+    background-color: #FF0000;
+    color: #fff; /* Texto blanco */
+    font-family: 'Comic Neue', cursive; /* Puedes usar la misma fuente o cambiarla */
+    font-weight: 700; /* Negrita */
+    font-size: 1.5rem; /* Tamaño de fuente */
+    text-decoration: none; /* Sin subrayado */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Menos redondeado que feature-btn, por ejemplo */
+    cursor: pointer; /* Indicador de clic */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Transición suave */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25); /* Sombra sutil */
+    margin-top: 0.5rem; /* Añadir un poco de espacio arriba si se ve pegado al párrafo */
+    text-align: center; /* Asegurar texto centrado */
+}
+
+.youtube-btn:hover {
+    background-color: #cc0000; /* Rojo más oscuro en hover */
+    transform: translateY(-2px); /* Efecto ligero de levantamiento */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra más pronunciada en hover */
+}
+
+/* --- Estilos para la Sección de Feedback --- */
+.feedback-section {
+    padding: 2rem 1rem;
+    margin: 3rem auto;
+    max-width: 700px; /* Más estrecho para formularios */
+    max-height: 350px;
+    background-color: #c2ffc8; /* Un fondo ligeramente diferente */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Reutilizamos .section-title si te gusta el estilo, o crea uno nuevo */
+.feedback-section .section-title {
+    font-size: 2rem;
+    color: #000;
+    margin-top: -10px;
+    text-shadow: 0 0 0px rgba(0, 0, 0, 1.0);
+}
+
+.feedback-intro {
+    text-align: center;
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+#feedback-form .form-group {
+    margin-bottom: 1.1rem; /* Espacio entre campos */
+}
+
+#feedback-form label {
+    display: block; /* Coloca la etiqueta en su propia línea */
+    margin-bottom: 0.5rem; /* Espacio entre etiqueta y campo */
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    color: #495057; /* Gris oscuro */
+}
+
+#feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    resize: vertical;
+    min-height: 100px;
+}
+
+#feedback-form textarea:focus {
+    border-color: #4682b4;
+    outline: none;
+}
+
+.form-submit-button {
+    text-align: center; /* Centra el botón */
+    margin-top: -5px;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #1e90ff; /* Dodger Blue */
+    color: #fff;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 25px; /* Redondeado */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.submit-btn:hover {
+    background-color: #187bcd; /* Azul más oscuro */
+    transform: scale(1.05);
+}
+
+                                                                        /* --- Estilos para la Página de Videos --- */
+.new-video-title {
+    text-align: center;
+    font-family: 'Finger Paint', cursive;
+    font-size: 2.5rem;
+    color: red;
+    text-transform: uppercase; /* Todo en mayúsculas */
+    letter-spacing: 2px;
+    margin-top: 1px;
+    margin-bottom: 30px;
+    padding: 0.5rem 0;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+
+}
+.new-video-section {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem; /* Más espacio antes de la cuadrícula principal */
+    padding: 1.5rem;    /* Espacio interior */
+    background-color: rgba(0, 0, 0, 0.2); 
+    border: 3px dashed #ff7043;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+}
+
+.new-video-highlight {
+    max-width: 600px; /* Limita el ancho máximo del video destacado */
+    margin-left: auto;  /* Centra el artículo si es más estrecho que el contenedor */
+    margin-right: auto; /* Centra el artículo */
+    background-color: #ffffff; /* Fondo blanco normal para el item */
+    /* Hereda la sombra y borde redondeado de .video-item */
+    /* Podrías quitarle el hover o hacerlo diferente si quieres */
+    transition: none; /* Quitar la animación de hover si no la quieres aquí */
+    transform: none; /* Quitar la animación de hover si no la quieres aquí */
+    position: relative; /* Necesario para posicionar el badge */
+    overflow: visible; /* Permitir que el badge se salga un poco si es necesario */
+}
+
+.new-video-highlight:hover {
+    transform: none; /* Asegurarse que no se mueva en hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra estándar */
+}
+
+/* Estilo para la Etiqueta "¡Nuevo!" (Opcional) */
+.video-badge {
+    position: absolute;
+    top: -5px; /* Posicionar arriba del video item */
+    left: -5px; /* Posicionar a la izquierda */
+    background-color: #ff4500; /* Naranja-Rojo llamativo */
+    color: white;
+    font-family: 'Finger Paint', cursive;
+    font-size: 1rem;
+    padding: 5px 12px;
+    border-radius: 15px 15px 15px 0; /* Forma divertida */
+    transform: rotate(-10deg); /* Rotar ligeramente */
+    z-index: 10; /* Asegurar que esté encima */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+
+/* Contenedor de la cuadrícula */
+body.videos .content {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+body.videos .content h2 {
+    font-family: 'Finger Paint', cursive;
+    font-size: 2.5rem;
+    color: #c40c06;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.7);
+    text-transform: uppercase;
+}
+
+.content .intro-paragraph {
+    font-size: 1.3rem;
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.5rem;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem; /* Espacio entre los videos */
+    margin-top: 2rem; /* Espacio después del párrafo introductorio */
+    padding: 0; /* Elimina padding si .content ya lo tiene */
+}
+
+/* Cada elemento de video en la cuadrícula */
+.video-item {
+    background-color: #ffffff; /* Fondo blanco para cada item */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden; /* Asegura que el iframe no se salga */
+    display: flex; /* Para organizar contenido interno verticalmente */
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-item:hover {
+    transform: translateY(-8px); /* Eleva el item de video (puedes usar un valor diferente si quieres) */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Estilos para .video-embed-container, iframe, h4, p DENTRO de .video-item */
+.video-embed-container {position: relative;
+    padding-top: 56.25%;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.video-embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-item h4 {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    color: #0000ba;
+    font-size: 1.2rem;
+    margin: 1rem 1rem 0.5rem 1rem;
+}
+.video-item p {
+    font-family: 'Comic Neue', cursive;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0 1rem 1rem 1rem; /* Márgenes (arriba, lados, abajo) */
+    flex-grow: 1; /* Permite que el párrafo ocupe espacio si es necesario */
+    text-align: center;}
+
+.youtube-cta-container {
+    text-align: center; /* Centra el botón horizontalmente */
+    padding: 2rem 1rem; /* Espacio arriba/abajo y a los lados */
+    margin-top: 2rem;   /* Espacio adicional arriba, separándolo del contenido */
+}
+
+.youtube-cta-button {
+    display: inline-block; /* Permite padding y centrado */
+    background-color: #FF0000; /* Rojo brillante de YouTube */
+    color: #ffffff; /* Texto blanco */
+    padding: 20px 45px; /* Padding MUY GENEROSO ra hacerlo GRANDE */
+    border-radius: 50px; /* Bordes muy redondeados, casi una píldora */
+    font-family: 'Finger Paint', cursive; /* Fuente divertida y llamativa */
+    font-size: 2rem;      /* Tamaño de fuente GRANDE */
+    font-weight: normal;  /* La fuente Finger Paint ya es bastante gruesa */
+    text-decoration: none; /* Quitar subrayado */
+    text-transform: uppercase; /* Opcional: Poner texto en mayúsculas */
+    letter-spacing: 1px;      /* Opcional: ligero espacio entre letras */
+    border: 4px solid #b30000; /* Borde sólido un poco más oscuro */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25); /* Sombra pronunciada para destacar */
+    transition: all 0.3s ease; /* Transición suave para hover */
+    cursor: pointer;
+}
+
+/* Estilos para el icono dentro del botón */
+.youtube-cta-button .fab.fa-youtube {
+    margin-right: 12px; /* Espacio entre el icono y el texto */
+    font-size: 2.2rem;  /* Icono ligeramente más grande que el texto */
+    vertical-align: middle; /* Ayuda a alinear el icono con el texto */
+}
+
+.youtube-cta-button:hover {
+    background-color: #cc0000; /* Rojo un poco más oscuro */
+    border-color: #800000;     /* Borde aún más oscuro */
+    transform: translateY(-5px) scale(1.05); /* Levantar y agrandar ligeramente */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35); /* Sombra más intensa */
+    color: #fff; /* Asegurar que el texto siga blanco */
+}
+
+                                                                         /* --- Estilos para la Página de juegos --- */
+/* Contenedor general de la página de juegos */
+.juegos-page-content {
+    max-width: 1000px; /* Ancho máximo del contenido */
+    margin: 0 auto;    /* Centrar el contenido */
+    padding: 2rem 1rem; /* Padding interno */
+}
+
+/* Título común para las secciones de juegos */
+.section-title-juegos {
+    font-family: 'Finger Paint', cursive;
+    font-size: 2.8rem;
+    color: #ff4500; /* Orange Red */
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* === Estilos para la Sección Juego Nuevo Destacado === */
+.featured-new-game {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 3rem; /* Espacio antes de la lista */
+    border: 4px dashed #ff9800; /* Borde naranja */
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+.new-game-highlight-item {
+    display: flex; /* Usar flex para alinear imagen y detalles */
+    flex-wrap: wrap; /* Permitir que se apilen en móvil */
+    align-items: center; /* Centrar verticalmente */
+    gap: 1rem; /* Espacio entre imagen y detalles */
+    position: relative; /* Para posicionar el badge */
+    overflow: hidden;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.new-game-highlight-item .large-thumbnail {
+    flex: 1 1 45%; /* Que ocupe aprox 45% del ancho */
+    text-align: center;
+    height: auto;
+    margin-bottom: 1rem;
+}
+.new-game-highlight-item .large-thumbnail img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Ajustes para los detalles grandes del juego destacado */
+.new-game-highlight-item .large-details {
+    flex: 1 1 45%;
+    text-align: center;
+}
+.new-game-highlight-item .large-details h4 {
+    font-size: 2rem;
+    color: #e65100; /* Naranja oscuro */
+    margin-bottom: 1rem;
+    text-align: center; /* Alinear a la izquierda */
+}
+.new-game-highlight-item .large-details p {
+    font-size: 1.1rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+/* Botones dentro del juego destacado */
+.new-game-highlight-item .game-buttons-wrapper {
+     justify-content: flex-start; /* Alinear botones a la izquierda */
+}
+.new-game-highlight-item .game-btn {
+     font-size: 1.1rem;
+     padding: 10px 10px;
+     animation: pulse 2.5s ease-in-out 1s infinite; /* Devolvemos la animación */
+}
+
+/* Posicionamiento del Badge "Nuevo" */
+.new-game-highlight-item .video-badge {
+    top: -10px;
+    left: -10px;
+}
+
+
+                            /* === Estilos para la Sección Lista de Otros Juegos === */
+.game-list-section {
+    margin-top: 3rem; /* Espacio arriba de esta sección */
+}
+
+.game-list {
+    display: flex;
+    flex-direction: column; /* Apilar juegos verticalmente */
+    gap: 2rem; /* Espacio entre cada juego de la lista */
+}
+
+/* Cada item de la lista */
+.game-list-item {
+    display: flex; /* Imagen a la izquierda, detalles a la derecha */
+    align-items: center; /* Centrar verticalmente */
+    gap: 1.5rem; /* Espacio entre imagen y detalles */
+    background-color: #f1f8e9; 
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 5px solid #a1fc03; 
+    box-shadow: 0 0 100px rgba(0,0,0,1);
+    transition: background-color 0.3s ease;
+}
+
+.game-list-item:hover {
+    background-color: #e8f5e9; /* Un poco más oscuro al pasar el ratón */
+}
+
+/* Miniatura en la lista */
+.game-list-item .list-thumbnail {
+    flex: 1 1 40%; /* Ancho fijo para la miniatura (0 crecer, 0 encoger, base 180px) */
+    height: 100%;   /* Altura fija (opcional, ajusta según tus imágenes) */
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff; /* Fondo blanco por si la imagen no carga */
+}
+.game-list-item .list-thumbnail img {
+    width: 120%;
+    height: 100%; /* Hacer que la imagen llene la altura fija */
+    object-fit: cover; /* Cubrir el área sin distorsionar, puede recortar */
+    display: block;
+}
+
+/* Detalles en la lista */
+.game-list-item .list-details {
+    flex: 1 1 45%; /* Ocupa el espacio restante */
+    display: flex;
+    flex-direction: column; /* Apilar título, párrafo, botones */
+    min-width: 0;
+}
+.game-list-item .list-details h4 {
+    font-size: 2rem;
+    color: #558b2f; /* Verde oscuro */
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 700;
+}
+.game-list-item .list-details p {
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* El párrafo ocupa espacio si los botones van abajo */
+}
+/* Botones en la lista */
+.game-list-item .game-buttons-wrapper {
+    justify-content: flex-start; /* Alinear a la izquierda */
+    margin-top: auto; /* Empujar al final si hay espacio */
+}
+
+
+                                                                    /* --- ESTILOS PARA LA PÁGINA DE DESCARGAS (Layout de Lista) --- */
+
+/* Contenedor general de la página de descargas */
+.descargas-page-content {
+    max-width: 1000px; /* Ancho máximo */
+    margin: 0 auto;    /* Centrar */
+    padding: 2rem 1rem; /* Padding */
+}
+
+/* Título principal de la sección */
+.section-title-descargas {
+    font-family: 'Finger Paint', cursive;
+    font-size: 2.8rem;
+    color: #02dbc9; /* Púrpura oscuro */
+    text-align: center;
+    margin-bottom: 1rem; /* Menos espacio antes del párrafo */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+/* Párrafo introductorio específico si es necesario */
+body.descargas .intro-paragraph {
+     margin-bottom: 2.5rem; /* Más espacio después del párrafo */
+     text-align: center;
+     font-size: 1.3rem;
+}
+
+
+/* === Estilos para la Sección Lista de Descargas === */
+.download-list-section {
+    margin-top: 2rem; /* Espacio arriba */
+}
+
+.download-list {
+    display: flex;
+    flex-direction: column; /* Apilar items verticalmente */
+    gap: 2.5rem; /* Espacio MÁS GRANDE entre cada item de descarga */
+}
+
+/* Cada item de la lista de descarga */
+.download-list-item {
+    display: flex;
+    flex-wrap: wrap; /* Permitir apilado en móvil */
+    align-items: flex-start; /* ALINEAR ARRIBA: La imagen y el texto empiezan arriba */
+    gap: 2rem; /* Espacio entre imagen y detalles */
+    background-color: #ede7f6; /* Lavanda pálido */
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 3px dashed #7e57c2; /* Púrpura medio */
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+
+/* Miniatura en la lista de descarga (Clases combinadas) */
+.download-list-item .download-thumbnail.list-thumbnail {
+    flex: 1 1 45%; /* Ancho fijo un poco más grande */
+    min-width: 150px;
+    height: auto;   /* Altura fija */
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #d1c4e9; /* Borde lavanda */
+}
+.download-list-item .download-thumbnail.list-thumbnail img {
+     width: 100%;
+     height: 100%;
+     object-fit: contain; /* 'contain' para ver todo el dibujo/preview */
+     display: block;
+}
+
+/* Detalles en la lista de descarga (Clases combinadas) */
+.download-list-item .download-details.list-details {
+    flex: 1 1 45%; /* Ocupa el espacio restante */
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Importante para flex */
+}
+.download-list-item .download-details.list-details h4 {
+    font-size: 2rem; /* Título más grande */
+    color: #5e35b1; /* Púrpura más oscuro */
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+.download-list-item .download-details.list-details p {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Info del archivo en la lista */
+.download-list-item .download-info {
+     text-align: center;
+     margin-top: 2rem;
+     margin-bottom: 1.5rem; /* Más espacio antes del botón */
+     font-size: 0.85rem;
+     gap: 1rem;
+}
+.download-list-item .download-info .file-type,
+.download-list-item .download-info .file-size {
+    background-color: #e1e1e1; /* Gris más claro */
+    padding: 4px 9px;
+    border-radius: 12px;
+    align-items: center;
+}
+
+/* Wrapper del botón de descarga */
+.download-list-item .download-button-wrapper {
+    margin-top: auto; /* Empuja el botón al final si hay espacio vertical */
+    width: 100%; /* Ocupa el ancho */
+    text-align: center; /* Alinea el botón (que es inline-block/flex) a la izquierda */
+}
+
+/* Botón de descarga específico */
+.download-list-item .download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #07db3f;
+    color: white;
+    padding: 12px 30px; /* Botón más grande */
+    border: none;
+    border-radius: 25px; /* Más redondeado */
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 1.1rem; /* Fuente más grande */
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.25);
+    animation: pulse 2s ease-in 1s infinite;
+}
+.download-list-item .download-btn:hover {
+    background-color: #512da8; /* Púrpura más oscuro */
+    transform: scale(1.03);
+}
+.download-list-item .download-btn i {
+    margin-right: 10px; /* Más espacio icono */
+    font-size: 1.2em; /* Icono un poco más grande */
+}
+
+
+                                                                         /* --- ESTILOS PARA LA PÁGINA DE MUSICA --- */
+/* Contenedor general */
+.musica-page-content {
+    max-width: 950px; /* Ancho máximo */
+    margin: 0 auto;    /* Centrar */
+    padding: 2rem 1rem; /* Padding */
+}
+
+/* Título principal de la sección */
+.section-title-musica {
+    font-family: 'Finger Paint', cursive;
+    font-size: 2.8rem;
+    color: red;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    text-transform: uppercase;
+}
+
+/* Párrafo introductorio */
+body.musica .intro-paragraph {
+    margin-bottom: 3rem; /* Más espacio después */
+    color: #eee; /* Color claro si el fondo es oscuro */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Sombra para legibilidad */
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+
+/* === Sección Reproductor Destacado === */
+.featured-player-section {
+    background-color: rgba(0, 0, 0, 0.25); /* Fondo semi-transparente oscuro */
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    border: 3px solid #80deea; /* Borde cyan claro */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Título "Sonando Ahora" */
+.now-playing-title {
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.2rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+.now-playing-title #current-song-title {
+    font-style: italic;
+    color: #ffeb3b; /* Amarillo */
+}
+
+/* Contenedor de carátula y reproductor */
+.audio-player-container {
+    display: flex;
+    flex-direction: column; /* Apilar carátula encima de reproductor */
+    align-items: center;
+    gap: 1.5rem; /* Espacio entre carátula y reproductor */
+}
+
+/* Carátula actual */
+.current-artwork {
+    display: block;
+    width: 100%;
+    max-width: 300px; /* Tamaño máximo de carátula */
+    height: auto;
+    aspect-ratio: 1 / 1; /* Forzar a ser cuadrada */
+    border-radius: 10px;
+    object-fit: cover; /* Cubrir el espacio cuadrado */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background-color: #555; /* Fondo por si falla imagen */
+}
+
+/* Estilos para el reproductor Plyr */
+/* El ID o clase que le diste a tu <audio> */
+#main-audio-player {
+    width: 100%;
+    max-width: 600px; /* Ancho máximo del reproductor */
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Asegurarse que el contenedor de Plyr se adapte */
+.plyr {
+     border-radius: 8px;
+     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+
+/* === Sección Lista de Canciones === */
+.song-list-section {
+    margin-top: 3rem;
+}
+
+/* Título de la subsección (Nuestras Canciones) */
+.subsection-title {
+    font-family: 'Finger Paint', cursive;
+    font-size: 2rem;
+    color: #c40c06;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 3px dashed #a7ffeb;
+    padding-bottom: 0.5rem;
+    display: inline-block; /* Para que el borde no ocupe todo el ancho */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Lista de canciones UL */
+.song-list {
+    list-style: none; /* Quitar viñetas */
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; /* Espacio entre canciones */
+}
+
+/* Cada item LI de la lista */
+.song-list-item {
+    display: flex;
+    align-items: center; /* Alinear verticalmente */
+    gap: 1rem; /* Espacio entre artwork, info y botón */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco muy transparente */
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer; /* Indica que todo el LI es clickeable */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.song-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Estilo para el item que está sonando (añadido por JS) */
+.song-list-item.playing {
+    background-color: rgba(0, 188, 212, 0.3); /* Fondo cyan transparente */
+    border-color: #00bcd4;
+}
+
+/* Carátula pequeña en la lista */
+.song-item-artwork {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    object-fit: cover;
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+/* Contenedor de info (título/artista) */
+.song-item-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Ocupa el espacio disponible */
+    min-width: 0; /* Para que el texto se ajuste bien */
+    text-align: left;
+}
+
+/* Título de la canción en la lista */
+.song-item-title {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Añade "..." si es muy largo */
+}
+
+/* Artista en la lista */
+.song-item-artist {
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+/* Botón Play/Pause en la lista */
+.play-pause-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem; /* Tamaño del icono */
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: auto; /* Empuja el botón a la derecha */
+    flex-shrink: 0;
+    line-height: 1; /* Evita altura extra */
+    transition: color 0.2s ease;
+}
+
+.play-pause-button:hover {
+    color: #00bcd4; /* Color cyan al pasar el ratón */
+}
+.song-list-item.playing .play-pause-button {
+     color: #ffeb3b; /* Amarillo cuando está sonando */
+}
+
+                                                               /* --- Footer --- */
+footer {
+    background-color: #32cd32; /* Lime Green */
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 5px solid #ffd700; /* Gold */
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Animación para el título (efecto "pop-in" con un ligero rebote) */
+@keyframes popInBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1); /* Ligeramente más grande */
+  }
+  80% {
+    transform: scale(0.95); /* Rebote hacia adentro */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* Tamaño final */
+  }
+}
+
+/* Animación para los botones (un pulso suave y continuo) */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  50% {
+    transform: scale(1.05); /* Un poco más grande */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra más pronunciada */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+}
+
+/* Animación para el hover de botones*/
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes animateGradientBackground {
+  0% {
+    background-position: 0% 50%; /* Empieza a la izquierda */
+  }
+  100% {
+    background-position: 100% 50%; /* Termina a la derecha */
+  }
+}
+                                                                           /* --- Media Query --- */
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem; /* Ajusta padding en móvil */
+    }
+
+    .logo-link {
+        margin-bottom: 0.8rem; /* Espacio entre logo y nav en móvil */
+    }
+
+    .site-name-full {
+        display: none; /* Oculta nombre completo */
+    }
+    .site-name-abbr {
+        display: inline; /* Muestra abreviatura */
+        font-size: 1.9rem; /* Ajusta tamaño si es necesario */
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 0; /* Quita margen superior ya que el logo tiene inferior */
+        align-items: center; /* Centra los items de nav */
+    }
+
+    nav ul li {
+        margin: 0.4rem 0; /* Ajusta margen vertical en nav móvil */
+        margin-left: 0; /* Resetea margen izquierdo */
+    }
+
+    .nav-toggle {
+        display: block; /* Mostrar en pantallas pequeñas */
+        position: absolute; /* Posicionarlo */
+        right: 1.5rem;    /* A la derecha */
+        top: 50%;         /* Centrado verticalmente (aprox) */
+        transform: translateY(-50%); /* Ajuste fino vertical */
+    }
+
+    /* Oculta la navegación por defecto y prepárala para desplegar */
+    header nav#main-nav {
+    }
+
+    header nav#main-nav ul {
+        display: none; /* Cambiaremos esto con JS/clase activa */
+
+        /* Estilo cuando sea visible (desplegado) */
+        position: absolute; /* Sacarlo del flujo */
+        top: 100%; 
+        right: 0px;
+        width: 30%;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        padding: 0 0;
+        margin: 0;
+        list-style: none;
+        flex-direction: column; /* Apilar verticalmente */
+        align-items: stretch; /* Que los items ocupen todo el ancho */
+        z-index: 1000; /* Asegurar que esté por encima de otro contenido */
+        border-top: 1px solid #ff69b4; /* Borde superior para separar */
+    }
+
+    /* Estilo para mostrar el menú cuando el NAV tenga la clase 'nav-active' */
+    header nav#main-nav.nav-active ul {
+        display: flex; /* O display: block; */
+    }
+
+    /* Estilo de los ítems de lista y enlaces en móvil */
+    header nav#main-nav ul li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    header nav#main-nav ul li a {
+        display: block; /* Hacer que el enlace ocupe todo el ítem */
+        padding: 1rem 1.5rem; /* Más padding para tocar fácil */
+        color: white; /* Color del enlace */
+        font-size: 1.1rem;
+        border-bottom: 1px solid #ffe4b3; /* Separador sutil */
+        border-radius: 0; /* Quitar redondeo si lo tenía */
+        background-color: transparent; /* Asegurar fondo transparente */
+    }
+    header nav#main-nav ul li:last-child a {
+        border-bottom: none; /* Quitar último separador */
+    }
+
+    /* Estilo para el enlace activo en móvil */
+    header nav#main-nav ul li a.active {
+         background-color: #ffdd99; /* Un fondo diferente para el activo en móvil */
+         color: #ff4500; /* Color diferente */
+         box-shadow: none; /* Quitar sombra si la tenía */
+    }
+    header nav#main-nav ul li a:hover {
+        background-color: #ffebcc; /* Hover suave */
+        color: #ff6347;
+    }
+
+    /* Ajusta el header si es necesario para hacer espacio */
+    header {
+         position: relative; /* Necesario si posicionas el UL absoluto a él */
+    }
+
+    .banner {
+        height: 250px; /* Banner más pequeño en móvil */
+    }
+
+     main {
+        padding-top: calc(250px + 1.5rem); /* Altura banner móvil + padding reducido */
+        padding-left: 1.5rem;  /* Opcional: reducir padding lateral */
+        padding-right: 1.5rem; /* Opcional: reducir padding lateral */
+        padding-bottom: 1.5rem;/* Opcional: reducir padding inferior */
+    }
+
+    .banner h2 {
+        font-size: 2.2rem; /* Título de banner más pequeño */
+        padding: 0.8rem 1.5rem;
+    }
+
+    .content {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    .feature-box {
+         /* En pantallas muy pequeñas, podrían ocupar casi todo el ancho */
+         flex-basis: 80%; /* O ajusta según veas necesario */
+     }
+
+    /* --- Ajustes Responsivos para Video Destacado --- */ 
+    .featured-video-content {
+        gap: 1.5rem; /* Reduce el espacio entre columnas */
+        padding: 1.5rem; /* Reduce el padding */
+    }
+
+    .video-thumbnail,
+    .game-thumbnail {
+         flex-basis: 100%; /* Opcional: forzar a ocupar todo el ancho al apilarse */
+         margin-bottom: 1rem; /* Añade espacio si se apila */
+         text-align: center; /* Centrar la imagen si su contenedor es más ancho */
+    }
+
+     .video-details {
+         flex-basis: 100%; /* Opcional: forzar a ocupar todo el ancho al apilarse */
+         text-align: center; /* Centrar el texto cuando se apila */
+    }
+
+     .video-details h4 {
+        font-size: 1.6rem; /* Título un poco más pequeño */
+    }
+     .video-details p {
+        font-size: 0.95rem; /* Párrafo un poco más pequeño */
+    }
+
+    .section-title {
+        font-size: 2rem; /* Título principal más pequeño */
+        margin-bottom: 1.5rem;
+    }
+
+    .video-details.text-align-center .youtube-btn {
+         margin-left: auto;
+         margin-right: auto;
+    }
+
+    .featured-game-content {
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+     .game-details {
+         text-align: center; /* Centrar texto y botones cuando se apilan */
+         flex-basis: 100%;
+    }
+    .game-buttons-wrapper {
+        justify-content: center; /* Asegura que los botones se centren al apilarse */
+    }
+     .game-details h4 {
+        font-size: 1.6rem;
+    }
+     .game-details p {
+        font-size: 0.95rem;
+    }
+    .game-title {
+        font-size: 2rem;
+    }
+
+
+.new-video-title {
+        font-size: 1.5rem; /* Un poco más pequeño en móvil */
+        margin-top: 0.1rem;
+        text-align: center;
+    }
+
+    .new-video-section h3 {
+        font-size: 1.8rem; /* Título un poco más pequeño */
+    }
+    .new-video-highlight {
+        flex-basis: 100%;
+    }
+    .video-badge {
+        font-size: 0.9rem;
+        padding: 4px 5px;
+        top: -10px;
+        left: -10px;
+    }
+
+     .youtube-cta-button {
+        font-size: 1.6rem; /* Reducir fuente en tablets/móviles grandes */
+        padding: 18px 35px; /* Reducir padding */
+    }
+    .youtube-cta-button .fab.fa-youtube {
+        font-size: 1.8rem;
+    }
+
+
+.section-title-juegos {
+        font-size: 2.4rem;
+    }
+
+    /* Juego destacado en tablet */
+    .new-game-highlight-item .large-details h4 { font-size: 1.8rem; }
+    .new-game-highlight-item .large-details p { font-size: 1rem; }
+    .new-game-highlight-item .game-btn { font-size: 1rem; padding: 8px 16px; }
+
+     .new-game-highlight-item .video-badge {
+        top: 5px;  /* Reducir el desplazamiento superior */
+        left: 5px; /* Reducir el desplazamiento izquierdo */
+        font-size: 0.8rem; /* Hacer la fuente un poco más pequeña si es necesario */
+        padding: 3px 8px; /* Reducir padding si es necesario */
+        transform: rotate(-7deg); /* Reducir rotación si se ve raro */
+    }
+
+    /* Lista en tablet */
+    .game-list-item .list-thumbnail {
+        flex-basis: 150px; /* Miniatura un poco más pequeña */
+        height: 100px;
+    }
+    .game-list-item .list-details h4 { font-size: 1.4rem; }
+    .game-list-item .list-details p { font-size: 0.95rem; }
+
+
+.section-title-descargas {
+        font-size: 2.4rem;
+    }
+    .download-list-item .download-thumbnail.list-thumbnail {
+        flex-basis: 160px; /* Miniatura un poco más pequeña */
+        height: 120px;
+    }
+    .download-list-item .download-details.list-details h4 { font-size: 1.4rem; }
+    .download-list-item .download-details.list-details p { font-size: 0.95rem; }
+    .download-list-item .download-btn { font-size: 1rem; padding: 10px 25px; }
+
+    .song-list {
+        grid-template-columns: 1fr;
+        gap: 1rem; /* Reducimos gap vertical */
+    }
+
+    .section-title-musica { font-size: 2.4rem; }
+    .subsection-title { font-size: 1.8rem; }
+
+    .current-artwork { max-width: 250px; } /* Carátula un poco más pequeña */
+    #main-audio-player { max-width: 100%; } /* Reproductor ocupa todo el ancho */
+
+    .song-item-title { font-size: 0.95rem; }
+    .song-item-artist { font-size: 0.8rem; }
+    .play-pause-button { font-size: 1.3rem; }
+
+
+
+@media (max-width: 600px) { /* Punto de quiebre intermedio para la lista */
+    
+    /* Apilar elementos de la lista */
+    .game-list-item {
+        flex-direction: column; /* Apilar imagen encima de detalles */
+        align-items: center; /* Centrar todo */
+        text-align: center; /* Centrar texto por defecto */
+    }
+    .game-list-item .list-thumbnail {
+        flex-basis: auto; /* Ancho automático */
+        width: 80%; /* Limitar ancho de la imagen apilada */
+        max-width: 250px; /* Máximo ancho */
+        height: auto; /* Altura automática */
+        margin-bottom: 1rem;
+    }
+    .game-list-item .list-thumbnail img {
+        height: auto; /* Altura automática */
+        object-fit: contain; /* Contener la imagen, sin recortar */
+    }
+     .game-list-item .list-details {
+         align-items: center; /* Centrar contenido interno */
+         width: 100%; /* Ocupar ancho */
+     }
+    .game-list-item .list-details h4,
+    .game-list-item .list-details p {
+         text-align: center; /* Asegurar texto centrado */
+    }
+    .game-list-item .game-buttons-wrapper {
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 0.5rem;
+    }
+     .game-list-item .game-btn {
+        display: block;
+        width: 100%; /* Botones ocupan el ancho del wrapper */
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        text-align: center;
+        padding: 5px 15px;
+        font-size: 0.85rem;
+        line-height: 1.3;
+        margin-bottom: 0.8rem;
+        height: auto;
+        min-height: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        animation: none;
+    }
+
+.download-list-item {
+        flex-direction: column;
+        align-items: center; /* Centrar todo */
+        text-align: center;
+    }
+    .download-list-item .download-thumbnail.list-thumbnail {
+        flex-basis: auto;
+        width: 80%;
+        max-width: 250px;
+        height: auto; /* Altura automática al apilar */
+        margin-bottom: 1rem;
+    }
+     .download-list-item .download-details.list-details {
+         align-items: center;
+         width: 100%;
+     }
+    .download-list-item .download-details.list-details h4,
+    .download-list-item .download-details.list-details p {
+         text-align: center; /* Centrar texto */
+    }
+    .download-list-item .download-info {
+        justify-content: center; /* Centrar info */
+    }
+     .download-list-item .download-button-wrapper {
+        text-align: center; /* Centrar botón */
+        margin-top: 1rem; /* Espacio fijo antes del botón */
+     }
+    .download-list-item .download-btn {
+         width: auto; /* Ancho automático basado en contenido/padding */
+         max-width: 90%; /* Limitar ancho por si el texto es largo */
+    }
+
+.section-title-musica { font-size: 2rem; }
+    .subsection-title { font-size: 1.6rem; }
+    body.musica .intro-paragraph { font-size: 1.1rem; }
+
+    .featured-player-section { padding: 1rem; }
+    .now-playing-title { font-size: 1rem; }
+    .current-artwork { max-width: 200px; } /* Carátula aún más pequeña */
+    .audio-player-container { gap: 1rem; }
+
+    .song-list-item { padding: 0.6rem 0.8rem; gap: 0.8rem; }
+    .song-item-artwork { width: 40px; height: 40px; }
+    .song-item-title { font-size: 0.9rem; }
+    .song-item-artist { font-size: 0.75rem; }
+    .play-pause-button { font-size: 1.2rem; padding: 0.3rem; }
+}
+
+
+/* Ajuste opcional para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .site-name {
+        font-size: 1.6rem; /* Reduce más el nombre/abbr si es necesario */
+    }
+     .logo-img {
+        max-height: 50px; /* Logo un poco más pequeño */
+    }
+    nav ul li a {
+        font-size: 1.1rem;
+        padding: 0.4rem 0.8rem;
+    }
+     .banner h2 {
+        font-size: 1.8rem;
+    }
+
+
+.section-title-juegos { /* Aseguramos que el título también se comporte */
+         font-size: 2rem;
+         word-wrap: break-word; /* Evita que títulos largos desborden */
+    }
+
+    .new-game-highlight-item {
+        display: block;
+        padding: 1rem; /* Reducimos un poco el padding interno en móvil */
+        overflow: hidden;
+    }
+    .new-game-highlight-item .large-thumbnail {
+        display: block;
+        width: 90%;      /* Usamos porcentaje en lugar de max-width fijo */
+        max-width: 280px;
+        height: auto;    /* Altura automática */
+        flex-basis: auto;/* Reseteamos flex-basis */
+        margin: 0 1rem auto;
+    }
+     .new-game-highlight-item .large-thumbnail img {
+        display: block;
+        width: 100%;
+        height: auto;
+     }
+    
+     .new-game-highlight-item .large-details {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        text-align: center;
+    }
+    .new-game-highlight-item .large-details h4,
+    .new-game-highlight-item .large-details p {
+        text-align: center;
+        word-wrap: break-word;
+
+    }
+     .new-game-highlight-item .game-buttons-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Ocupan el ancho de .large-details */
+        gap: 0.75rem;
+        margin-top: 1rem;
+
+    }
+     .new-game-highlight-item .game-btn {
+        width: 90%;
+        max-width: 300px;
+        padding: 8px 16px;
+        font-size: 1rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: auto;
+        text-align: center;
+        margin-bottom: 0;
+     }
+
+    /* Ajuste del Badge (si sigue causando problemas, hazlo menos intrusivo) */
+   .new-game-highlight-item .video-badge {
+        top: 1.5rem; /* Ligeramente más abajo */
+        left: 1.5rem;  /* Ligeramente más a la derecha */
+        font-size: 0.8rem;
+        padding: 3px 8px;
+        transform: rotate(-7deg);
+        max-width: 80px; /* Limitar su ancho por si acaso */
+    }
+
+.section-title-descargas {
+        font-size: 2rem;
+    }
+    .download-list-item .download-thumbnail.list-thumbnail {
+         max-width: 200px; /* Miniatura aún más pequeña */
+    }
+     .download-list-item .download-details.list-details h4 { font-size: 1.3rem; }
+     .download-list-item .download-details.list-details p { font-size: 0.9rem; }
+     .download-list-item .download-btn { font-size: 0.9rem; padding: 9px 20px; }
+
+
+.song-list {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+     }
+}

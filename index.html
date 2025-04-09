@@ -3,39 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descarga nuestros juegos</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Canciones kids coloridas</title>
+     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Finger+Paint&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="home">
+
     <header>
-        <img src="banner.webp" alt="Banner de juegos" class="banner">
-        <h1 class="animated-title">🎮 Descarga Nuestros Juegos 📲</h1>
+        <div class="logo">
+            <a href="index.html" class="logo-link">
+                    <img src="images/logo.png" alt="Canciones kids coloridas Logo" class="logo-img">
+                    <span class="site-name">
+                       <span class="site-name-full">Canciones Kids Coloridas</span>
+                       <span class="site-name-abbr">CKC</span>
+                </span>
+            </a>
+        </div>
+         <button class="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="descargas.html">Descargas</a></li>
+                <li><a href="musica.html">Música</a></li>
+            </ul>
+        </nav>
     </header>
-    
-    <main>
-        <section class="game-list">
-            <div class="game game-number">
-                <h2 class="animated-title">Números</h2>
-                <p>Aprende y diviértete contando números con este juego educativo.</p>
-                <a href="https://drive.google.com/uc?export=download&id=180A_1viXa4EZl9edjFJUwBIBcDl2uQKd" download class="download-btn" target="_blank" onclick="incrementCounter('game1')">Descargar</a>
+
+<main id="swup" class="transition-fade">
+
+    <section class="banner">
+        <h2>¡Bienvenido a la Aventura!</h2>
+    </section>
+
+    <section class="features-container">
+
+        <article class="feature-box videos-box">
+            <h3>Videos Divertidos</h3>
+            <p>¡Mira los clips y episodios más entretenidos!</p>
+            <!-- El botón es un enlace estilizado -->
+            <a href="videos.html" class="feature-btn">Ir a Videos</a>
+        </article>
+
+        <article class="feature-box juegos-box">
+            <h3>Juegos Interactivos</h3>
+            <p>¡Pon a prueba tus habilidades y aprende jugando!</p>
+            <a href="juegos.html" class="feature-btn">Ir a Juegos</a>
+        </article>
+ 
+        <article class="feature-box descargas-box">
+            <h3>Descarga y Crea</h3>
+            <p>¡Material listo para descargar, colorear y para divertirte.!</p>
+            <a href="descargas.html" class="feature-btn">Ir a Descargas</a>
+        </article>
+
+        <article class="feature-box musica-box">
+                <h3>Música Alegre</h3>
+                <p>¡Canta y baila con nuestras canciones favoritas!</p>
+                <a href="musica.html" class="feature-btn">Ir a Música</a>
+        </article>
+
+    </section>
+
+        <!-- ===== Sección Video Destacado ===== -->
+    <section class="featured-video-section">
+
+        <h2 class="section-title">Video Destacado</h2>
+
+        <div class="featured-video-content">
+            <!-- Columna Izquierda: Miniatura -->
+            <div class="video-thumbnail">
+                <img src="images/miniatura_arcoiris.webp" alt="Los Colores del Arcoíris">
             </div>
-            <div class="game game-color">
-                <h2 class="animated-title">ColorMix</h2>
-                <p>Descubre cómo mezclar colores y aprende jugando.</p>
-                <a href="https://drive.google.com/uc?export=download&id=16cIzh51f1u_vEnH4uzAkDYs66r5iCH1T" download class="download-btn" target="_blank" onclick="incrementCounter('game2')">Descargar</a>
+
+              <!-- Columna Derecha: Detalles -->
+            <div class="video-details">
+                <h4>¡Los Colores del Arcoíris🌈🎶!</h4>
+                <p>
+                    En esta canción educativa, los niños aprenderán los colores del arcoíris de una forma fácil y entretenida. 🎶 ¡Canta, baila y diviértete mientras descubres el rojo, naranja, amarillo, verde, azul, índigo y violeta! 🎨
+                </p>
+
+                <a href="https://youtu.be/DopO1eAZ44Y" target="_blank" rel="noopener noreferrer" class="youtube-btn">
+                    Ver en YouTube ▶️
+                </a> 
             </div>
-            <div class="game game-vocal">
-                <h2 class="animated-title">MagicVocal</h2>
-                <p>Explora las vocales de forma mágica e interactiva.</p>
-                <a href="https://drive.google.com/uc?export=download&id=1Y1JDBZM17wua2iTiKohO_lpIDzk2HhDp" download class="download-btn" target="_blank" onclick="incrementCounter('game3')">Descargar</a>
+        </div>
+
+    </section>
+
+        <!-- ===== Sección Juego Destacado ===== -->
+    <section class="featured-game-section">
+
+        <h2 class="section-title game-title">¡Nuestro Juego Estrella! ✨</h2>
+
+        <div class="featured-game-content">
+            <div class="game-thumbnail">
+                <img src="images/Background_Magicvocal.webp" alt="MagicVocal">
             </div>
-        </section>
-    </main>
-    
+
+            <!-- Columna Derecha: Detalles del Juego -->
+            <div class="game-details">
+                <h4>MagicVocal</h4>
+                <p>
+                    MagicVocales es un juego interactivo diseñado especialmente para niños, donde aprender las vocales se convierte en una aventura mágica y colorida. Con animaciones divertidas, sonidos encantadores y desafíos entretenidos, los pequeños exploradores podrán:
+
+                    🔠 Descubrir cada vocal con efectos visuales y sonidos que refuerzan el aprendizaje.
+
+                    🎯 Jugar y acertar en desafíos interactivos donde deben encontrar la vocal correcta. 
+
+                    🔊 Escuchar las vocales en español e inglés con una pronunciación clara y amigable.
+
+                    🌈 Explorar un mundo lleno de colores, animaciones y sorpresas diseñadas para captar su atención.
+                </p>
+
+                <!-- Contenedor para los botones (opcional, para mejor control) -->
+                <div class="game-buttons-wrapper">
+                    <a href="https://pereira20253408.github.io/magic-vocales/" target="_blank" rel="noopener noreferrer" class="game-btn play-online-btn">
+                        Jugar Online 🎮
+                    </a>
+                    <a href="https://drive.google.com/uc?export=download&id=1Y1JDBZM17wua2iTiKohO_lpIDzk2HhDp" class="game-btn download-apk-btn" download>
+                        Descargar APK 📱
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+        <!-- ===== Sección Redes Sociales ===== -->
+    <section class="social-media-section">
+
+        <h2 class="section-title social-title">¡Conéctate con nosotros! 🎉</h2>
+
+        <div class="social-icons-container">
+
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@Cancioneskidscoloridas2025" target="_blank" rel="noopener noreferrer" class="social-icon-link youtube" aria-label="Visita nuestro canal de YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+
+            <a href="https://www.instagram.com/ckc2.025/" target="_blank" rel="noopener noreferrer" class="social-icon-link instagram" aria-label="Síguenos en Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@cnacioneskidscoloridas" target="_blank" rel="noopener noreferrer" class="social-icon-link tiktok" aria-label="Encuéntranos en TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+
+        </div>
+    </section>
+</main>
+
+    <section class="feedback-section">
+
+        <h2 class="section-title">¡Déjanos tu Opinión!</h2>
+        <p class="feedback-intro">
+            Nos encanta saber qué piensas. ¿Tienes alguna sugerencia o idea para mejorar?
+            ¡Cuéntanos! (Tus comentarios son privados y nos ayudan a crecer).
+        </p>
+
+        <form id="feedback-form"
+              action="https://formspree.io/f/mjkyepjj"
+              method="POST">
+
+            <div class="form-group">
+                <textarea id="comment" name="comentario" rows="5" required></textarea>
+            </div>
+
+            <input type="text" name="_gotcha" style="display:none">
+
+            <div class="form-group form-submit-button">
+                <button type="submit" class="submit-btn">Enviar Comentario</button>
+            </div>
+        </form>
+    </section>
+
     <footer>
-        <p>&copy; 2025 - CKC - Todos los derechos reservados</p>
+        <p>© 2025 CKC. ¡La diversión está aquí!</p>
     </footer>
-    
-    <script src="script.js"></script>
+
+    <script src="js/menu.js"></script>
+    <script src="js/music-player.js"></script>
+    <script src="https://unpkg.com/swup@4"></script>
+    <script src="https://unpkg.com/@swup/body-class-plugin@3"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canciones kids coloridas - Musica</title>
+     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Finger+Paint&display=swap" rel="stylesheet">
+</head>
+<body class="musica">
+
+    <header>
+        <div class="logo">
+            <a href="index.html" class="logo-link">
+                    <img src="images/logo.png" alt="Canciones kids coloridas Logo" class="logo-img">
+                    <span class="site-name">
+                       <span class="site-name-full">Canciones Kids Coloridas</span>
+                       <span class="site-name-abbr">CKC</span>
+                </span>
+            </a>
+        </div>
+        <button class="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="videos.html">Videos</a></li> 
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="descargas.html">Descargas</a></li>
+                <li><a href="musica.html" class="active">Música</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="swup" class="transition-fade">
+
+        <section class="banner">
+        </section>
+
+        <div class="musica-page-content">
+
+            <h2 class="section-title-musica">¡Sube el Volumen a la Diversión!</h2>
+            <p class="intro-paragraph">Canta con nosotros, baila sin parar y disfruta de la música que hemos preparado especialmente para ti. ¡Dale al play!</p>
+
+            <!-- === Sección Reproductor Destacado === -->
+        <section class="featured-player-section">
+            <h3 class="now-playing-title">Sonando Ahora: <span id="current-song-title">¡Elige una canción!</span></h3>
+            <div class="audio-player-container">
+                <img src="images/skin/ckc.webp" alt="Carátula de la canción actual" id="current-song-artwork" class="current-artwork">
+                <audio id="main-audio-player" controls controlsList="nodownload noplaybackrate">
+                </audio> 
+            </div>
+        </section>
+
+            <!-- === Sección Lista de Canciones === -->
+        <section class="song-list-section">
+            <h3 class="subsection-title">Nuestras Canciones</h3>
+            <ul class="song-list">
+
+                <!-- Canción 1 -->
+                <li class="song-list-item"
+                    data-src="audio/lavacalola.mp3"
+                    data-title="La Vaca Lola (Remix)"
+                    data-artwork="images/skin/lavacalola.webp">
+                        <img src="images/skin/lavacalola.webp" alt="Carátula La Vaca Lola" class="song-item-artwork">
+                    <div class="song-item-info">
+                        <span class="song-item-title">La Vaca Lola (Remix)</span>
+                        <span class="song-item-artist">CKC</span>
+                    </div>
+                    <button class="play-pause-button" aria-label="Reproducir La Vaca Lola (Remix)">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </li>
+
+                <!-- Canción 2 -->
+                <li class="song-list-item"
+                    data-src="audio/contemosjuntos.mp3"
+                    data-title="Contemos Juntos"
+                    data-artwork="images/skin/contemosjuntos.webp">
+                        <img src="images/skin/contemosjuntos.webp" alt="Carátula Contemos Juntos" class="song-item-artwork">
+                    <div class="song-item-info">
+                        <span class="song-item-title">Contemos Juntos</span>
+                        <span class="song-item-artist">CKC</span>
+                    </div>
+                        <button class="play-pause-button" aria-label="Reproducir Contemos Juntos">
+                            <i class="fas fa-play"></i>
+                        </button>
+                </li>
+
+                <!-- Canción 3 -->
+                <li class="song-list-item"
+                    data-src="audio/lafiestadeloscolores.mp3"
+                    data-title="La Fiesta de los Colores"
+                    data-artwork="images/skin/lafiestadeloscolores.webp">
+                        <img src="images/skin/lafiestadeloscolores.webp" alt="Carátula La Fiesta de los Colores" class="song-item-artwork">
+                    <div class="song-item-info">
+                        <span class="song-item-title">La Fiesta de los Colores</span>
+                        <span class="song-item-artist">CKC</span>
+                    </div>
+                        <button class="play-pause-button" aria-label="Reproducir La Fiesta de los Colores">
+                            <i class="fas fa-play"></i>
+                        </button>
+                </li>
+
+                    <!-- Canción 4 -->
+                <li class="song-list-item"
+                    data-src="audio/estrellitamagica.mp3"
+                    data-title="Estrellita, ¿Dónde Estás?"
+                    data-artwork="images/skin/estrellitamagica.webp">
+                        <img src="images/skin/estrellitamagica.webp" alt="Carátula Estrellita" class="song-item-artwork">
+                    <div class="song-item-info">
+                        <span class="song-item-title">Estrellita Mágica</span>
+                        <span class="song-item-artist">CKC</span>
+                    </div>
+                        <button class="play-pause-button" aria-label="Reproducir Estrellita, ¿Dónde Estás?">
+                            <i class="fas fa-play"></i>
+                        </button>
+                </li>
+
+
+            </ul>
+        </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 CKC. ¡La diversión está aquí!</p>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/music-player.js"></script>
+    <script src="https://unpkg.com/swup@4"></script>
+    <script src="https://unpkg.com/@swup/body-class-plugin@3"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

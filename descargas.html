@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canciones kids coloridas - Descargas</title>
+     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Finger+Paint&display=swap" rel="stylesheet">
+</head>
+
+<body class="descargas">
+
+    <header>
+        <div class="logo">
+            <a href="index.html" class="logo-link">
+                    <img src="images/logo.png" alt="Canciones kids coloridas Logo" class="logo-img">
+                    <span class="site-name">
+                       <span class="site-name-full">Canciones Kids Coloridas</span>
+                       <span class="site-name-abbr">CKC</span>
+                </span>
+            </a>
+        </div>
+        <button class="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="videos.html">Videos</a></li> 
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="descargas.html" class="active">Descargas</a></li>
+                <li><a href="musica.html">Música</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="swup" class="transition-fade">
+
+        <section class="banner">
+        </section>
+
+        <div class="descargas-page-content">
+
+            <h2 class="section-title-descargas">¡Descarga y Crea!</h2> <!-- Título principal de la sección -->
+            <p class="intro-paragraph">Aquí encontrarás dibujos para colorear y muchas imágenes divertidas para descargar, imprimir y jugar. ¡Manos a la obra!</p>
+
+        <section class="download-list-section">
+
+                <div class="download-list">
+
+                    <article class="download-list-item">
+                        <div class="download-thumbnail list-thumbnail"> <!-- Usamos clases similares a las de juegos -->
+                            <img src="images/des-pdf.webp" alt="Vista previa dibujos para colorear">
+                        </div>
+                        <div class="download-details list-details"> <!-- Usamos clases similares a las de juegos -->
+                            <h4>Dibujos Mágicos para Colorear</h4>
+                            <p>¡Un montón de tus personajes favoritos listos para llenar de color! Descarga el PDF e imprime las páginas que más te gusten.</p>
+                            <div class="download-info"> <!-- Opcional: Info del archivo -->
+                                <span class="file-type"><i class="fas fa-file-pdf"></i> PDF</span>
+                                <span class="file-size">1.2 MB Aprox</span>
+                            </div>
+                            <div class="download-button-wrapper"> <!-- Wrapper específico para el botón -->
+                                <a href="https://drive.google.com/drive/folders/1ApdpBWl8Fk8shPIvu4swBT9ZDKSt6YTB?usp=drive_link" class="download-btn" target="_blank" rel="noopener noreferrer"download>
+                                    <i class="fas fa-download" ></i> Descargar PDF
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="download-list-item">
+                        <div class="download-thumbnail list-thumbnail">
+                            <img src="images/des-img.webp" alt="Vista previa imágenes del canal">
+                        </div>
+                        <div class="download-details list-details">
+                            <h4>Imágenes Divertidas del Canal</h4>
+                            <p>¿Te encantan nuestros personajes? Descarga un paquete con imágenes en alta calidad para usar donde quieras (¡con permiso de un adulto!).</p>
+                            <div class="download-info">
+                                <span class="file-type"><i class="fas fa-file-archive"></i> ZIP (PNG/JPG)</span>
+                                <span class="file-size">62.7 MB Aprox</span>
+                            </div>
+                             <div class="download-button-wrapper">
+                                <a href="https://drive.google.com/drive/folders/1IhylSHdlbbSxk-n6QzkrD6tiiHEOqrlJ?usp=drive_link" class="download-btn" target="_blank" rel="noopener noreferrer"download>
+                                    <i class="fas fa-download"></i> Descargar Imágenes (ZIP)
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div> 
+        </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 CKC. ¡La diversión está aquí!</p>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/music-player.js"></script>
+    <script src="https://unpkg.com/swup@4"></script>
+    <script src="https://unpkg.com/@swup/body-class-plugin@3"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
